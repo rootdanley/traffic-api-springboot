@@ -1,5 +1,7 @@
 package com.danley.trafficapi.common;
 
+import com.danley.trafficapi.api.model.VeiculoModel;
+import com.danley.trafficapi.domain.model.Veiculo;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +11,13 @@ public class ModelMapperConfig {
    
    @Bean
    public ModelMapper modelMapper() {
-      return new ModelMapper();
+      var modelMapper = new ModelMapper();
+      
+      modelMapper.createTypeMap(Veiculo.class, VeiculoModel.class)
+          .addMappings(mapper -> mapper.map(
+              Veiculo::getPlaca, VeiculoModel::setNumeroPlaca
+          ));
+      
+      return modelMapper;
    }
 }

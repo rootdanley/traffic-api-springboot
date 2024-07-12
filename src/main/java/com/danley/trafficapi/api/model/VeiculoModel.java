@@ -1,4 +1,4 @@
-package com.danley.trafficapi.api.dto;
+package com.danley.trafficapi.api.model;
 
 import com.danley.trafficapi.domain.model.StatusVeiculo;
 import lombok.Getter;
@@ -9,12 +9,12 @@ import java.time.OffsetDateTime;
 
 @Getter
 @Setter
-public class VeiculoDto {
+public class VeiculoModel {
    private Long id;
-   private String nomeProprietario;
+   private ProprietarioResumoModel proprietario;
    private String marca;
    private String modelo;
-   private String placa;
+   private String numeroPlaca;
    private StatusVeiculo status;
    private OffsetDateTime dataCadastro;
    private OffsetDateTime dataApreensao;
