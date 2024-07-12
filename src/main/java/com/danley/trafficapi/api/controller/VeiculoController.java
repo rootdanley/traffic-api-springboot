@@ -2,7 +2,7 @@ package com.danley.trafficapi.api.controller;
 
 
 import com.danley.trafficapi.api.model.VeiculoModel;
-import com.danley.trafficapi.api.mapper.VeiculoAssembler;
+import com.danley.trafficapi.api.assembler.VeiculoAssembler;
 import com.danley.trafficapi.api.model.input.VeiculoInput;
 import com.danley.trafficapi.domain.model.Veiculo;
 import com.danley.trafficapi.domain.repository.VeiculoRepository;

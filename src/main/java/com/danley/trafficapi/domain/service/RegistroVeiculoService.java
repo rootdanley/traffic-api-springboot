@@ -38,4 +38,9 @@ public class RegistroVeiculoService {
       novoVeiculo.setDataCadastro(OffsetDateTime.now());
       return veiculoRepository.save(novoVeiculo);
    }
+   
+   public Veiculo buscar(Long veiculoId){
+      return veiculoRepository.findById(veiculoId)
+                 .orElseThrow(() -> new NegocioException("Veiculo nao encontrado"));
+   }
 }

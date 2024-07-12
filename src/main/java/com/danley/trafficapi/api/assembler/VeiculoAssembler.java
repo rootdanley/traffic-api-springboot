@@ -1,4 +1,4 @@
-package com.danley.trafficapi.api.mapper;
+package com.danley.trafficapi.api.assembler;
 
 import com.danley.trafficapi.api.model.VeiculoModel;
 import com.danley.trafficapi.api.model.input.VeiculoInput;
