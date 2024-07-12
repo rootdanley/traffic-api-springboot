@@ -1,5 +1,6 @@
 package com.danley.trafficapi.domain.model;
 
+import com.danley.trafficapi.domain.exception.NegocioException;
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -49,4 +50,33 @@ public class Veiculo {
       
       return autuacao;
    }
+   
+   
+   public void apreender(){
+      if (estaApreendido()){
+         throw new NegocioException("veiculo já apreendido");
+      }
+      
+      setStatus(StatusVeiculo.APREENDIDO);
+      setDataApreensao(OffsetDateTime.now());
+   }
+   
+   public void removerApreensao(){
+      if (naoEstaApreendido()){
+         throw new NegocioException("veiculo nao esta apreendido");
+      }
+      
+      setStatus(StatusVeiculo.REGULAR);
+      setDataApreensao(null);
+   }
+   
+   
+   public boolean estaApreendido(){
+      return StatusVeiculo.APREENDIDO.equals(getStatus());
+   }
+   
+   public boolean naoEstaApreendido(){
+      return !estaApreendido();
+   }
+   
 }

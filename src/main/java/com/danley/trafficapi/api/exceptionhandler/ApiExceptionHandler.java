@@ -1,6 +1,7 @@
 package com.danley.trafficapi.api.exceptionhandler;
 
 
+import com.danley.trafficapi.domain.exception.EntidadeNaoEncontradaException;
 import com.danley.trafficapi.domain.exception.NegocioException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -66,6 +67,17 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
       problemDetail.setType(URI.create("https://danley.com.br/api/erros/recurso"));
       
       return problemDetail;
+   }
+   
+   @ExceptionHandler(EntidadeNaoEncontradaException.class)
+   public ProblemDetail handleEntidadeNaoEncontradaException(NegocioException e){
+      ProblemDetail problemDetail = ProblemDetail.forStatus(HttpStatus.NOT_FOUND);
+      
+      problemDetail.setTitle(e.getMessage());
+      problemDetail.setType(URI.create("https://danley.com.br/api/erros/recurso-nao-encontrado"));
+      
+      return problemDetail;
+      
    }
    
 }

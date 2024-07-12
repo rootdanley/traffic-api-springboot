@@ -1,5 +1,6 @@
 package com.danley.trafficapi.domain.service;
 
+import com.danley.trafficapi.domain.exception.EntidadeNaoEncontradaException;
 import com.danley.trafficapi.domain.exception.NegocioException;
 import com.danley.trafficapi.domain.model.Proprietario;
 import com.danley.trafficapi.domain.model.StatusVeiculo;
@@ -41,6 +42,6 @@ public class RegistroVeiculoService {
    
    public Veiculo buscar(Long veiculoId){
       return veiculoRepository.findById(veiculoId)
-                 .orElseThrow(() -> new NegocioException("Veiculo nao encontrado"));
+                 .orElseThrow(() -> new EntidadeNaoEncontradaException("Veiculo nao encontrado"));
    }
 }
