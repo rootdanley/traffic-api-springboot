@@ -7,6 +7,7 @@ import com.danley.trafficapi.domain.repository.VeiculoRepository;
 import com.danley.trafficapi.domain.service.RegistroVeiculoService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,7 @@ public class VeiculoController {
    
    private final VeiculoRepository veiculoRepository;
    private final RegistroVeiculoService registroVeiculoService;
+   private final ModelMapper modelMapper;
    
    @GetMapping
    public List<Veiculo> listar() {

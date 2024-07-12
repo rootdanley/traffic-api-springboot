@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 
 @AllArgsConstructor
@@ -35,7 +36,7 @@ public class RegistroVeiculoService {
       Proprietario proprietario = registroProprietarioService.buscar(novoVeiculo.getProprietario().getId());
       novoVeiculo.setProprietario(proprietario);
       novoVeiculo.setStatus(StatusVeiculo.REGULAR);
-      novoVeiculo.setDataCadastro(LocalDateTime.now());
+      novoVeiculo.setDataCadastro(OffsetDateTime.now());
       return veiculoRepository.save(novoVeiculo);
    }
 }

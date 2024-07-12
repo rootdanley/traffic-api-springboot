@@ -14,6 +14,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 
 @Getter
@@ -50,8 +51,8 @@ public class Veiculo {
    private StatusVeiculo  status;
    
    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-   private LocalDateTime dataCadastro;
+   private OffsetDateTime dataCadastro;
    
    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
-   private LocalDateTime dataApreensao;
+   private OffsetDateTime dataApreensao;
 }
